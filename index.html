@@ -3,31 +3,28 @@
 <head>
 	<title>Lesson</title>
 	<link rel="stylesheet" href="css/style.css">
+	<meta charset="utf-8">
 </head>
 <body>
-	<form>
-		<div style="width: 200px; float: left; text-align: right; margin-right: 15px;">Введите текст:</div>
-		<input id="input1" type="text"> <br> <br>
-
-		<div style="width: 200px; float: left; text-align: right; margin-right: 15px;">Введите комментарий:</div>
-		<textarea></textarea> <br>
-
-		<div>Результат обработки:</div>
-		<div style="border: 1px solid black; padding: 10px; width: 500px;">
-			<div style="width: 160px; text-align: right; float: left;">Количество слов:</div><span id="span1"></span><br>
-			<div style="width: 160px; text-align: right; float: left;">Самое длинное слово:</div><span id="span2"></span><br>
-			<div style="width: 160px; text-align: right; float: left;">Самое короткое слово:</div><span id="span3"></span><br>
-			<div style="width: 160px; text-align: right; float: left;">Обратный порядок:</div><span id="span4"></span><br>
-		</div>
-		<button type="button" onclick="if (document.getElementById('input1').value.length == 0) alert('Введите текст для обработки'); else work();">Обработка</button> <br>
-
-		<button type="reset">Заново</button>
-	</form>
+	<div class="blocks">
+		<div class="b block1"></div>
+		<div class="b block2"></div>
+		<div class="b block3"></div>
+		<div class="b block4"></div>
+	</div>
+	Введите номер блока:
+	<input type="text" name="number" id="input">
+	<button type="button">Выполнить</button>
+	<button type="button" onclick="f1()">Пронумеровать</button>
 	<script>
-		function work(){
-			var s = document.getElementById('input1').value;
-			var m = s.split(' ');
-			document.getElementById('span1').innerHTML = m.length;
+		function f1 () {
+			var m = document.querySelectorAll('div div');
+			alert(m.length);
+			for(var i = 0; i < m.length; ++i)
+			{
+				m[i].innerHTML = i + 1;
+				m[i].setAttribute('id', i + 1);
+			}
 		}
 	</script>
 </body>
